@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Outline</title>
+<meta name="description" content="Get help with Outline: report a bug, ask a question, or send an idea.">
+<link rel="icon" href="../assets/mark.svg">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .cards { display: grid; gap: 0.9rem; margin: 2rem 0 0; }
+  .card { position: relative; overflow: hidden; }
+  .card::before {
+    content: ""; position: absolute; left: 0; top: 1.5rem; bottom: 1.5rem;
+    width: 3px; border-radius: 2px;
+  }
+  .card.help::before { background: var(--yellow); }
+  .card.idea::before { background: var(--good); }
+  .card p { margin-bottom: 1.2rem; }
+
+  .faq { margin-top: 1rem; }
+  .faq details {
+    border-bottom: 1px solid var(--line);
+    padding: 0.9rem 0;
+  }
+  .faq summary {
+    cursor: pointer; font-weight: 600; color: var(--text);
+    list-style: none; display: flex; justify-content: space-between; gap: 1rem;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: var(--label); font-family: var(--mono); }
+  .faq details[open] summary::after { content: "–"; }
+  .faq p { margin: 0.8rem 0 0; }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="home" href="../">
+    <span class="mark"><i></i><i></i></span>
+    <span class="wordmark">OUTLINE</span>
+  </a>
+</div>
+
+<main>
+  <p class="label">Support</p>
+  <h1>Need a hand with something?</h1>
+  <p class="lead">
+    A bug, a question about how a score was worked out, or an idea for what
+    should come next — here is how to reach me.
+  </p>
+
+  <div class="cards">
+    <div class="panel card help">
+      <p class="label">Get help</p>
+      <h2>Email directly</h2>
+      <p>
+        Something crashed, a score looks wrong, or the app is not behaving. Tell
+        me your iPhone model, your iOS version, and the version number from
+        <strong>Menu → Version</strong> — that is usually enough to reproduce it.
+      </p>
+      <a class="btn btn-fill" href="mailto:alcock.jc@gmail.com?subject=Outline%20support">alcock.jc@gmail.com</a>
+    </div>
+
+    <div class="panel card idea">
+      <p class="label">Share an idea</p>
+      <h2>Feedback &amp; feature requests</h2>
+      <p>
+        A mode you want, a shape that should exist, a difficulty that feels off.
+        The form is the quickest way in and I read all of it.
+      </p>
+      <a class="btn btn-quiet" href="https://forms.gle/3aU9ZnAmwT8JwQPE6" target="_blank" rel="noopener">Open feedback form →</a>
+    </div>
+  </div>
+
+  <h2>Common questions</h2>
+  <div class="faq">
+
+    <details>
+      <summary>How is my score worked out?</summary>
+      <p>
+        By distance, not by timing directly. When you tap, the game measures how
+        far the moving shape's centre was from the silhouette's centre at that
+        exact instant and turns it into 0–100: Perfect (100), Great (85–99),
+        Good (55–84), OK (20–54), Miss (under 20). The ring burst you see is a
+        true picture of where those bands are.
+      </p>
+    </details>
+
+    <details>
+      <summary>Why does Perfect feel almost impossible?</summary>
+      <p>
+        Because it is meant to be a bullseye rather than a better Great. At base
+        speed the shape crosses the Perfect radius in roughly 25 milliseconds —
+        about three frames on a ProMotion display, fewer on a 60Hz one. The
+        window also narrows as the speed ramps up through a session, so Perfect
+        gets rarer the longer you last.
+      </p>
+    </details>
+
+    <details>
+      <summary>Is the Daily Challenge the same for everyone?</summary>
+      <p>
+        Yes. It is generated from the date, so every player on a given day gets
+        the same ten rounds — the same shapes, entry directions and speeds. It is
+        also identical on every device and frame rate, which is why the motion is
+        solved mathematically rather than accumulated frame by frame.
+      </p>
+    </details>
+
+    <details>
+      <summary>What is different about Chaos?</summary>
+      <p>
+        Two things. Each shape gets a single pass across the screen rather than
+        bouncing back and forth, so a missed window does not come round again;
+        and some of the shapes that fly in do not match the silhouette. Freezing
+        one of those is a penalty — points taken off rather than a low score.
+      </p>
+    </details>
+
+    <details>
+      <summary>Do I need Game Center to play?</summary>
+      <p>
+        No. Personal bests and play history are stored on your device and work
+        offline, signed in or not. Game Center only adds the leaderboards. If
+        sign-in is not working, check <strong>Settings → Game Center</strong> on
+        your iPhone; the app never asks for a separate account.
+      </p>
+    </details>
+
+    <details>
+      <summary>How do I clear my scores and history?</summary>
+      <p>
+        Everything Outline stores lives on your device with the app, so deleting
+        the app removes all of it. Scores you have already posted to a Game
+        Center leaderboard are held by Apple and managed through your Game Center
+        account rather than by me.
+      </p>
+    </details>
+
+    <details>
+      <summary>Which iPhones does Outline run on?</summary>
+      <p>
+        Any iPhone running a current version of iOS. The game reads the same on a
+        60Hz and a 120Hz display — scoring is worked out from the moment of your
+        tap, not from the last drawn frame.
+      </p>
+    </details>
+
+  </div>
+</main>
+
+<footer>
+  <span>Outline</span>
+  <a href="../">Home</a>
+  <a href="../privacy/">Privacy</a>
+  <a href="mailto:alcock.jc@gmail.com">Contact</a>
+</footer>
+
+</body>
+</html>

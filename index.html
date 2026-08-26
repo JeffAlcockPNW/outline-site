@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outline — a pause challenge for iPhone</title>
+<meta name="description" content="A silhouette sits centre screen. A matching shape flies across it. Tap to freeze it at the moment of best alignment.">
+<link rel="icon" href="assets/mark.svg">
+<link rel="stylesheet" href="assets/site.css">
+<style>
+  .hero { max-width: var(--page); margin: 0 auto; padding: 3rem 1.5rem 1rem; }
+  .hero h1 { font-size: 2.6rem; max-width: 14ch; }
+  .hero .lead { margin-bottom: 1.8rem; }
+  .cta { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
+  .cta .note {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--label);
+  }
+
+  .stage { margin: 2.5rem 0 0; }
+  .stage svg { width: 100%; height: auto; display: block; }
+  .caption {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--label); margin: 0.9rem 0 0;
+  }
+
+  .modes { display: grid; gap: 0.8rem; margin: 1rem 0 0; }
+  .mode {
+    border: 1px solid var(--line-strong); border-radius: 10px;
+    padding: 1.15rem 1.3rem;
+  }
+  .mode h3 { margin: 0 0 0.25rem; font-size: 1.25rem; font-weight: 600; }
+  .mode p { margin: 0; font-family: var(--mono); font-size: 0.72rem;
+            letter-spacing: 0.13em; text-transform: uppercase; color: var(--label); }
+
+  .zones { display: grid; gap: 0; margin: 1rem 0 0; }
+  .zone {
+    display: flex; align-items: baseline; gap: 0.9rem;
+    padding: 0.6rem 0; border-bottom: 1px solid var(--line);
+  }
+  .zone:last-child { border-bottom: 0; }
+  .zone b {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.14em;
+    width: 5.5rem; flex: none;
+  }
+  .zone span { color: var(--text-2); font-size: 0.95rem; }
+  .zone i {
+    width: 10px; height: 10px; border-radius: 50%; flex: none;
+    align-self: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <a class="home" href="./">
+    <span class="mark"><i></i><i></i></span>
+    <span class="wordmark">OUTLINE</span>
+  </a>
+</div>
+
+<section class="hero">
+  <p class="label">Pause Challenge</p>
+  <h1>Freeze it at the right moment.</h1>
+  <p class="lead">
+    A silhouette sits centre screen. A matching shape flies in and bounces across
+    it. Tap to freeze the shape — you score 0 to 100 on how close the two centres
+    were at the instant you let go.
+  </p>
+  <div class="cta">
+    <a class="btn btn-quiet" href="support/">Support</a>
+    <span class="note">Coming to iPhone</span>
+  </div>
+
+  <div class="stage">
+    <svg viewBox="0 0 360 220" role="img" aria-label="A dashed star silhouette centre screen with a solid yellow star passing across it.">
+      <defs>
+        <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="7" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+      </defs>
+
+      <rect width="360" height="220" rx="14" fill="#0E1216" stroke="#202429"/>
+
+      <!-- HUD: the readouts that sit above the playfield in the app -->
+      <text x="24" y="34" fill="#82878C" font-family="ui-monospace, SF Mono, Menlo, monospace"
+            font-size="9" letter-spacing="1.6">ROUND 04</text>
+      <rect x="150" y="21" width="60" height="19" rx="9.5" fill="#25292E"/>
+      <text x="180" y="34.5" fill="#F0CC00" text-anchor="middle"
+            font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="11"
+            font-weight="600">1240</text>
+      <text x="336" y="34" fill="#82878C" text-anchor="end"
+            font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="9"
+            letter-spacing="1.6">0:18</text>
+
+      <!-- Scoring bands, drawn where ScoreCurve puts them -->
+      <circle cx="172" cy="126" r="62" fill="none" stroke="#202429"/>
+      <circle cx="172" cy="126" r="31" fill="none" stroke="#202429"/>
+
+      <!-- The target silhouette -->
+      <polygon points="172.0,62.0 188.6,103.2 232.9,106.2 198.8,134.7 209.6,177.8 172.0,154.2 134.4,177.8 145.2,134.7 111.1,106.2 155.4,103.2"
+               fill="none" stroke="#3E4348" stroke-width="2" stroke-dasharray="6 5"
+               stroke-linejoin="round"/>
+
+      <!-- The shape mid-pass, a little off centre — the moment before the tap -->
+      <polygon points="232.0,62.0 248.6,103.2 292.9,106.2 258.8,134.7 269.6,177.8 232.0,154.2 194.4,177.8 205.2,134.7 171.1,106.2 215.4,103.2"
+               fill="#F0CC00" opacity="0.92" filter="url(#glow)" stroke-linejoin="round"/>
+    </svg>
+    <p class="caption">Tap now and that is a Good. Wait two frames and it is not.</p>
+  </div>
+</section>
+
+<main>
+
+  <h2>Three ways to play</h2>
+  <div class="modes">
+    <div class="mode">
+      <h3>Classic</h3>
+      <p>Fixed time · 30s</p>
+    </div>
+    <div class="mode">
+      <h3>Daily Challenge</h3>
+      <p>Seeded · 10 rounds</p>
+    </div>
+    <div class="mode">
+      <h3>Chaos</h3>
+      <p>One pass only · wrong shapes</p>
+    </div>
+  </div>
+  <p style="margin-top:1rem">
+    The Daily Challenge is generated from the date, so every player gets the same
+    ten rounds — the same shapes, entering from the same directions, at the same
+    speeds. Chaos gives you a single pass at each shape and mixes in shapes that
+    do not match the silhouette; freeze one of those and it costs you points.
+  </p>
+
+  <h2>How a tap is scored</h2>
+  <p>
+    Distance between the two centres at the moment you froze the shape, banded
+    into five outcomes. Perfect is a genuine bullseye — at base speed the shape
+    crosses it in about 25 milliseconds.
+  </p>
+  <div class="zones">
+    <div class="zone"><i style="background:var(--perfect)"></i><b>PERFECT</b><span>100</span></div>
+    <div class="zone"><i style="background:var(--great)"></i><b>GREAT</b><span>85–99</span></div>
+    <div class="zone"><i style="background:var(--good)"></i><b>GOOD</b><span>55–84</span></div>
+    <div class="zone"><i style="background:var(--ok)"></i><b>OK</b><span>20–54</span></div>
+    <div class="zone"><i style="background:var(--miss)"></i><b>MISS</b><span>Under 20</span></div>
+  </div>
+
+  <h2>Built to be quiet</h2>
+  <p>
+    No accounts, no ads, no analytics, no tracking. Your scores and play history
+    live on your device. Game Center handles leaderboards if you are signed in,
+    and nothing else leaves your phone — the
+    <a href="privacy/">privacy policy</a> is the short version of that sentence
+    with the details filled in.
+  </p>
+
+</main>
+
+<footer>
+  <span>Outline</span>
+  <a href="support/">Support</a>
+  <a href="privacy/">Privacy</a>
+  <a href="mailto:alcock.jc@gmail.com">Contact</a>
+</footer>
+
+</body>
+</html>
