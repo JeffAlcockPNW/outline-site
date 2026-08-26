@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Outline — a pause challenge for iPhone</title>
-<meta name="description" content="A silhouette sits centre screen. A matching shape flies across it. Tap to freeze it at the moment of best alignment.">
+<meta name="description" content="An outline sits center screen. A matching shape flies across it. Tap to freeze it at the moment of best alignment.">
 <link rel="icon" href="assets/mark.svg">
 <link rel="stylesheet" href="assets/site.css">
 <style>
-  .hero { max-width: var(--page); margin: 0 auto; padding: 3rem 1.5rem 1rem; }
+  /* No bottom padding: the stage is the last thing in here, and main's own
+     top padding is the whole gap to the next section. */
+  .hero { max-width: var(--page); margin: 0 auto; padding: 3rem 1.5rem 0; }
   .hero h1 { font-size: 2.6rem; max-width: 14ch; }
   .hero .lead { margin-bottom: 1.8rem; }
   .cta { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
@@ -19,10 +21,6 @@
 
   .stage { margin: 2.5rem 0 0; }
   .stage svg { width: 100%; height: auto; display: block; }
-  .caption {
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.13em;
-    text-transform: uppercase; color: var(--label); margin: 0.9rem 0 0;
-  }
 
   .modes { display: grid; gap: 0.8rem; margin: 1rem 0 0; }
   .mode {
@@ -61,10 +59,10 @@
 
 <section class="hero">
   <p class="label">Pause Challenge</p>
-  <h1>Freeze it at the right moment.</h1>
+  <h1>Pause it at the right moment.</h1>
   <p class="lead">
-    A silhouette sits centre screen. A matching shape flies in and bounces across
-    it. Tap to freeze the shape — you score 0 to 100 on how close the two centres
+    An outline sits center screen. A matching shape flies in and bounces across
+    it. Tap to freeze the shape — you score 0 to 100 on how close the two centers
     were at the instant you let go.
   </p>
   <div class="cta">
@@ -73,8 +71,11 @@
   </div>
 
   <div class="stage">
-    <svg viewBox="0 0 360 220" role="img" aria-label="A dashed star silhouette centre screen with a solid yellow star passing across it.">
+    <svg viewBox="0 0 360 220" role="img" aria-label="A dashed star outline center screen with a solid yellow star passing across it.">
       <defs>
+        <clipPath id="panel">
+          <rect width="360" height="220" rx="14"/>
+        </clipPath>
         <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
           <feGaussianBlur stdDeviation="7" result="b"/>
           <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -94,20 +95,26 @@
             font-family="ui-monospace, SF Mono, Menlo, monospace" font-size="9"
             letter-spacing="1.6">0:18</text>
 
-      <!-- Scoring bands, drawn where ScoreCurve puts them -->
-      <circle cx="172" cy="126" r="62" fill="none" stroke="#202429"/>
-      <circle cx="172" cy="126" r="31" fill="none" stroke="#202429"/>
+      <!-- Scoring bands, drawn where ScoreCurve actually puts them: its radius
+           fractions (0.04 / 0.24 / 0.48 / 0.78) times this shape's size of 128,
+           each in its own zone colour. Kept very faint — they are the reason the
+           picture is legible, not something to look at. -->
+      <g clip-path="url(#panel)" fill="none" stroke-width="1.5">
+        <circle cx="172" cy="126" r="99.8" stroke="#E2805E" opacity="0.16"/>
+        <circle cx="172" cy="126" r="61.4" stroke="#6DA3DA" opacity="0.2"/>
+        <circle cx="172" cy="126" r="30.7" stroke="#5BB661" opacity="0.24"/>
+        <circle cx="172" cy="126" r="5.1" stroke="#F0CC00" opacity="0.4"/>
+      </g>
 
-      <!-- The target silhouette -->
+      <!-- The target outline -->
       <polygon points="172.0,62.0 188.6,103.2 232.9,106.2 198.8,134.7 209.6,177.8 172.0,154.2 134.4,177.8 145.2,134.7 111.1,106.2 155.4,103.2"
                fill="none" stroke="#3E4348" stroke-width="2" stroke-dasharray="6 5"
                stroke-linejoin="round"/>
 
-      <!-- The shape mid-pass, a little off centre — the moment before the tap -->
+      <!-- The shape mid-pass, a little off center — the moment before the tap -->
       <polygon points="232.0,62.0 248.6,103.2 292.9,106.2 258.8,134.7 269.6,177.8 232.0,154.2 194.4,177.8 205.2,134.7 171.1,106.2 215.4,103.2"
                fill="#F0CC00" opacity="0.92" filter="url(#glow)" stroke-linejoin="round"/>
     </svg>
-    <p class="caption">Tap now and that is a Good. Wait two frames and it is not.</p>
   </div>
 </section>
 
@@ -129,15 +136,15 @@
     </div>
   </div>
   <p style="margin-top:1rem">
-    The Daily Challenge is generated from the date, so every player gets the same
-    ten rounds — the same shapes, entering from the same directions, at the same
+    The Daily Challenge is new every day and every player gets the same ten
+    rounds — the same shapes, entering from the same directions, at the same
     speeds. Chaos gives you a single pass at each shape and mixes in shapes that
-    do not match the silhouette; freeze one of those and it costs you points.
+    do not match the outline; freeze one of those and it costs you points.
   </p>
 
   <h2>How a tap is scored</h2>
   <p>
-    Distance between the two centres at the moment you froze the shape, banded
+    Distance between the two centers at the moment you froze the shape, banded
     into five outcomes. Perfect is a genuine bullseye — at base speed the shape
     crosses it in about 25 milliseconds.
   </p>
