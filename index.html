@@ -11,9 +11,8 @@
   /* No bottom padding: the stage is the last thing in here, and main's own
      top padding is the whole gap to the next section. */
   .hero { max-width: var(--page); margin: 0 auto; padding: 3rem 1.5rem 0; }
-  .hero h1 { font-size: 2.6rem; max-width: 14ch; }
-  .hero .lead { margin-bottom: 1.8rem; }
-  .cta { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; }
+  .hero h1 { font-size: 2.6rem; }
+  .hero .lead { margin-bottom: 1.8rem; max-width: none; }
 
   .stage { margin: 2.5rem 0 0; }
   .stage svg { width: 100%; height: auto; display: block; }
@@ -61,9 +60,6 @@
     it. Tap to freeze the shape — you score 0 to 100 on how close the two centers
     were at the instant you let go.
   </p>
-  <div class="cta">
-    <a class="btn btn-quiet" href="support/">Support</a>
-  </div>
 
   <div class="stage">
     <svg viewBox="0 0 360 220" role="img" aria-label="A dashed star outline center screen with a solid yellow star passing across it.">
@@ -127,7 +123,7 @@
     </div>
     <div class="mode">
       <h3>Chaos</h3>
-      <p>One pass only · wrong shapes</p>
+      <p>Single Pass · decoy shapes</p>
     </div>
   </div>
   <p style="margin-top:1rem">
@@ -139,9 +135,8 @@
 
   <h2>How a tap is scored</h2>
   <p>
-    Distance between the two centers at the moment you froze the shape, banded
-    into five outcomes. Perfect is a genuine bullseye — at base speed the shape
-    crosses it in about 25 milliseconds.
+    Normalized distance between the two centers at the moment you froze the
+    shape, banded into five outcomes as described below.
   </p>
   <div class="zones">
     <div class="zone"><i style="background:var(--perfect)"></i><b>PERFECT</b><span>100</span></div>
