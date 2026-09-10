@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Outline — a pause challenge for iPhone</title>
 <meta name="description" content="An outline sits center screen. A matching shape flies across it. Tap to freeze it at the moment of best alignment.">
+<meta name="apple-itunes-app" content="app-id=6803614824">
 <link rel="icon" href="assets/mark.svg">
 <link rel="stylesheet" href="assets/site.css">
 <style>
@@ -13,6 +14,14 @@
   .hero { max-width: var(--page); margin: 0 auto; padding: 3rem 1.5rem 0; }
   .hero h1 { font-size: 2.6rem; }
   .hero .lead { margin-bottom: 1.8rem; max-width: none; }
+
+  /* The download ask, in the hero and again at the foot of main. */
+  .cta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.7rem 1rem; }
+  .cta-note {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--label);
+  }
+  .cta-end { margin-top: 1.6rem; }
 
   .stage { margin: 2.5rem 0 0; }
   .stage svg { width: 100%; height: auto; display: block; }
@@ -60,6 +69,11 @@
     it. Tap to freeze the shape — you score 0 to 100 on how close the two centers
     were at the instant you let go.
   </p>
+
+  <div class="cta">
+    <a class="btn btn-fill" href="https://apps.apple.com/us/app/outline-pause-challenge-game/id6803614824">Download on the App&nbsp;Store</a>
+    <span class="cta-note">Free · iPhone · iOS 18 or later</span>
+  </div>
 
   <div class="stage">
     <svg viewBox="0 0 360 220" role="img" aria-label="A dashed star outline center screen with a solid yellow star passing across it.">
@@ -155,6 +169,10 @@
     <a href="privacy/">privacy policy</a> is the short version of that sentence
     with the details filled in.
   </p>
+
+  <div class="cta cta-end">
+    <a class="btn btn-fill" href="https://apps.apple.com/us/app/outline-pause-challenge-game/id6803614824">Download on the App&nbsp;Store</a>
+  </div>
 
 </main>
 
