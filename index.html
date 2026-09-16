@@ -5,7 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Outline — a pause challenge for iPhone</title>
 <meta name="description" content="An outline sits center screen. A matching shape flies across it. Tap to freeze it at the moment of best alignment.">
-<meta name="apple-itunes-app" content="app-id=6803614824">
+<!-- The Smart App Banner, and the only way a web page can offer an App Clip:
+     Safari renders it itself, and there is no link or button we could put in
+     the page to do the same job. app-id stays alongside the clip's bundle id
+     as the fallback — it is what anyone on an older system, or on a device
+     where the clip cannot run, is offered instead. Safari shows the clip half
+     only once the clip is published and it has verified the domain against
+     /.well-known/apple-app-site-association, so until outline.game is pointed
+     at Pages and serving that file, this behaves exactly as it did before. -->
+<meta name="apple-itunes-app" content="app-id=6803614824, app-clip-bundle-id=com.jeffalcock.outline.Clip">
 <link rel="icon" href="assets/mark.svg">
 <link rel="stylesheet" href="assets/site.css">
 <style>
