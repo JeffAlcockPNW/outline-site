@@ -9,11 +9,12 @@
      Safari renders it itself, and there is no link or button we could put in
      the page to do the same job. app-id stays alongside the clip's bundle id
      as the fallback — it is what anyone on an older system, or on a device
-     where the clip cannot run, is offered instead. Safari shows the clip half
-     only once the clip is published and it has verified the domain against
-     /.well-known/apple-app-site-association, so until outline.game is pointed
-     at Pages and serving that file, this behaves exactly as it did before. -->
-<meta name="apple-itunes-app" content="app-id=6803614824, app-clip-bundle-id=com.jeffalcock.outline.Clip">
+     where the clip cannot run, is offered instead. app-clip-display=card asks
+     Safari for the full App Clip card rather than the thin banner, which is
+     easy to miss; it is one tap to dismiss. Safari shows the clip half only
+     because the clip is published and outline-game.pages.dev serves
+     /.well-known/apple-app-site-association naming it. -->
+<meta name="apple-itunes-app" content="app-id=6803614824, app-clip-bundle-id=com.jeffalcock.outline.Clip, app-clip-display=card">
 <link rel="icon" href="assets/mark.svg">
 <link rel="stylesheet" href="assets/site.css">
 <style>
