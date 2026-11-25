@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Outline — a pause challenge for iPhone</title>
+<title>Outline — a pause challenge for iPhone and Android</title>
 <meta name="description" content="An outline sits center screen. A matching shape flies across it. Tap to freeze it at the moment of best alignment.">
 <!-- The Smart App Banner, and the only way a web page can offer an App Clip:
      Safari renders it itself, and there is no link or button we could put in
@@ -27,7 +27,12 @@
   /* The download ask, in the hero and again at the foot of main. Flex rather
      than a bare block so the button sizes to its text without picking up
      stray whitespace below it. */
-  .cta { display: flex; }
+  .cta { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  /* Google Play's place in the download ask, held until the Play listing is
+     public. A span, not a link: there is nowhere for it to go yet. When it
+     does, it becomes an <a> to the listing and loses btn-soon. */
+  .btn-soon { color: var(--label); cursor: default; }
+  .btn-soon:hover { border-color: var(--line-strong); }
   .cta-end { margin-top: 1.6rem; }
 
   .stage { margin: 2.5rem 0 0; }
@@ -79,6 +84,7 @@
 
   <div class="cta">
     <a class="btn btn-fill" href="https://apps.apple.com/us/app/outline-pause-challenge-game/id6803614824">Download on the App&nbsp;Store</a>
+    <span class="btn btn-quiet btn-soon" aria-disabled="true">Google&nbsp;Play (Coming&nbsp;Soon)</span>
   </div>
 
   <div class="stage">
@@ -182,14 +188,16 @@
   <h2>Built to be quiet</h2>
   <p>
     No accounts, no ads, no analytics, no tracking. Your scores and play history
-    live on your device. Game Center handles leaderboards if you are signed in,
-    and nothing else leaves your phone — the
+    live on your device. Game Center on iPhone, and Google Play Games on Android
+    (coming soon), handle leaderboards if you are signed in, and nothing else
+    leaves your phone — the
     <a href="privacy/">privacy policy</a> is the short version of that sentence
     with the details filled in.
   </p>
 
   <div class="cta cta-end">
     <a class="btn btn-fill" href="https://apps.apple.com/us/app/outline-pause-challenge-game/id6803614824">Download on the App&nbsp;Store</a>
+    <span class="btn btn-quiet btn-soon" aria-disabled="true">Google&nbsp;Play (Coming&nbsp;Soon)</span>
   </div>
 
 </main>
