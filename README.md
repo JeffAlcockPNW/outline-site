@@ -1,9 +1,9 @@
 # outline-site
 
-The public web pages for **Outline**, an iPhone game. Three static pages, served
+The public web pages for **Outline**, a game for iPhone and (soon) Android. Three static pages, served
 by GitHub Pages from `main` at the repository root.
 
-| Page | Path | App Store Connect field |
+| Page | Path | App Store Connect field (Play Console uses the same privacy URL) |
 |---|---|---|
 | Landing | `/` | Marketing URL |
 | Support | `/support/` | Support URL |
@@ -13,7 +13,9 @@ HTML with one shared stylesheet derived from color tokens in the app's `Outline/
 Edit a file, push to `main`, and Pages redeploys.
 
 The support and privacy pages describe how the app actually behaves — local
-storage only, Game Center for leaderboards, no analytics or tracking. If that
+storage only, Game Center on iPhone and Google Play Games on Android for
+leaderboards, Android's own Google backup of the history file, no analytics or
+tracking. If that
 changes in the app, the privacy policy has to change with it, and its
 "Last updated" date with it.
 
